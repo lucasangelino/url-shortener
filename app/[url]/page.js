@@ -12,7 +12,10 @@ export default function Redirect({ params }) {
       const { baseUrl } = await api.url.baseUrl({ shortName: url });
       window.location.href = await baseUrl;
     };
-    getBaseUrl();
+
+    if (url) {
+      getBaseUrl();
+    }
   }, []);
 
   return (
