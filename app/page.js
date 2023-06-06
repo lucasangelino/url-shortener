@@ -22,7 +22,7 @@ export default function Home() {
     }
 
     const response = await api.url.short({ url, shortName });
-    setShortLink(`${process.env.DOMAIN_URL}${shortName}`);
+    setShortLink(`${process.env.NEXT_PUBLIC_DOMAIN_URL}${shortName}`);
     setIsLoading(false);
   };
 
