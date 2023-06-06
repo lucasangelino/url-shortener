@@ -2,8 +2,6 @@
 import { useState } from "react";
 import api from "./services/api";
 
-const DOMAIN = "http://localhost:3000/";
-
 export default function Home() {
   const [url, setUrl] = useState("");
   const [shortName, setShortName] = useState("");
@@ -24,7 +22,7 @@ export default function Home() {
     }
 
     const response = await api.url.short({ url, shortName });
-    setShortLink(`${DOMAIN}${shortName}`);
+    setShortLink(`${process.env.DOMAIN_URL}${shortName}`);
     setIsLoading(false);
   };
 
