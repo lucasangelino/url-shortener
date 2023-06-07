@@ -23,6 +23,25 @@ const api = {
       const exist = data.length > 0;
       return { exist, error };
     },
+    getScreenshot: async ({ paramUrl, width = 1080, height = 920 }) => {
+      const url = `https://website-screenshot6.p.rapidapi.com/screenshot?url=
+      ${paramUrl}
+      &width=${width}
+      &height=${height}
+      &fullscreen=false`;
+
+      const options = {
+        method: "GET",
+        headers: {
+          "X-RapidAPI-Key":
+            "70fd5bc58amsh8fd2d70064710b7p1a2c52jsn71a21b3a7137",
+          "X-RapidAPI-Host": "website-screenshot6.p.rapidapi.com",
+        },
+      };
+      const response = await fetch(url, options);
+      const { screenshotUrl } = await response.json();
+      return screenshotUrl;
+    },
   },
 };
 
